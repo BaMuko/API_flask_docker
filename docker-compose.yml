@@ -1,0 +1,10 @@
+  
+version: '3.4'
+
+services:
+  device-registry:
+    build: .
+    volumes:
+      - .:/robca_API
+    ports:
+      - 5000:80
