@@ -1,2 +1,12 @@
-Flask==0.12.2
+Flask==1.0
 markdown==2.6.11
+flask-restful==0.3.6
+Flask-HTTPAuth
+flask-jwt-extended
+Werkzeug==0.16
+flask_mongoengine
+flask-bcrypt
+python-dotenv
+waitress
+flask_jwt_extended
+Flask-Mail

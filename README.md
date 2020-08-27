@@ -1,4 +1,4 @@
-# Device Registrz Service
+# Device Registry Service
 
 ## Usage
 
