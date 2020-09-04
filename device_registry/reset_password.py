@@ -39,28 +39,28 @@ class ForgotPassword(Resource):
 class ResetPassword(Resource):
 	def post(self):
 		url = request.host_url + 'reset/'
-		#try:
-		body = request.get_json()
-		reset_token = body.get('reset_token')
-		password = body.get('password')
+		try:
+			body = request.get_json()
+			reset_token = body.get('reset_token')
+			password = body.get('password')
 
 
-		if not reset_token or not password:
-			raise SchemaValidationError
+			if not reset_token or not password:
+				raise SchemaValidationError
 
-		user_id = decode_token(reset_token) ['identity']
+			user_id = decode_token(reset_token) ['identity']
 
-		user = User.objects.get(id=user_id)
+			user = User.objects.get(id=user_id)
 
-		user.modify(password=password)
-		user.hash_password()
-		user.save()
+			user.modify(password=password)
+			user.hash_password()
+			user.save()
 
-		return send_mail('[Player-bag] Password reset successful',
-						sender='support@player-bag.com',
-						recipients=[user.email],
-						text_body='Password reset was successful.',
-						html_body='<p>Password reset was successful</p>')
+			return send_mail('[Player-bag] Password reset successful',
+							sender='support@player-bag.com',
+							recipients=[user.email],
+							text_body='Password reset was successful.',
+							html_body='<p>Password reset was successful</p>')
 
 		except SchemaValidationError:
 			raise SchemaValidationError

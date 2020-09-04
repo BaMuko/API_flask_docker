@@ -1,4 +1,4 @@
-Flask==1.0
+Flask==1.1.1
 markdown==2.6.11
 flask-restful==0.3.6
 Flask-HTTPAuth
@@ -10,3 +10,5 @@ python-dotenv
 waitress
 flask_jwt_extended
 Flask-Mail
+dnspython
+gunicorn
